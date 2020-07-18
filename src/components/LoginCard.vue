@@ -16,6 +16,7 @@
                 id="email"
                 label="Email"
                 name="login"
+                v-model="email"
                 type="email"
               ></v-text-field>
 
@@ -23,6 +24,7 @@
                 id="password"
                 label="Password"
                 name="password"
+                v-model="password"
                 type="password"
               ></v-text-field>
             </v-form>
