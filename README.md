@@ -8,7 +8,7 @@ Total is an expense tracking utility. Built for humans and developers.
 
 
 ## Technologies
-<img src="https://firebase.google.com/downloads/brand-guidelines/SVG/logo-built_black.svg" heigth="25px" width="100px" /> <img src="https://cdn.svgporn.com/logos/vue.svg" heigth="50px" width="50px" /> <img src="https://cdn.svgporn.com/logos/vuetifyjs.svg" heigth="50px" width="50px" /> <img src="https://cdn.svgporn.com/logos/graphql.svg" heigth="50px" width="50px" /> 
+<img src="https://firebase.google.com/downloads/brand-guidelines/SVG/logo-built_black.svg" heigth="25px" width="100px" /> <img src="https://cdn.svgporn.com/logos/vue.svg" heigth="50px" width="50px" /> <img src="https://cdn.svgporn.com/logos/vuetifyjs.svg" heigth="50px" width="50px" /> <img src="https://cdn.svgporn.com/logos/graphql.svg" heigth="50px" width="50px" /> <img src="https://cdn.svgporn.com/logos/google-cloud-platform.svg" heigth="50px" width="50px" /> <img src="https://cdn.svgporn.com/logos/google-cloud-functions.svg" heigth="50px" width="50px" /> 
 
 
 ## Frontend
