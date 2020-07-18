@@ -1,5 +1,5 @@
 <template>
-  <v-content>asd</v-content>
+  <v-main>asd</v-main>
 </template>
 
 <script lang="ts">

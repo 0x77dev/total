@@ -10,7 +10,10 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@mdi/font": "^3.6.95",
+    "animate.css": "^4.1.0",
+    "animation.css": "^0.1.0",
     "core-js": "^3.6.5",
+    "firebase": "^7.16.1",
     "register-service-worker": "^1.7.1",
     "roboto-fontface": "*",
     "vue": "^2.6.11",
