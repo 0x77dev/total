@@ -20,7 +20,12 @@ const server = new ApolloServer({
   introspection: true,
 });
 
-const api = server.createHandler();
+const api = server.createHandler({
+  cors: {
+    origin: "*",
+    credentials: true,
+  },
+});
 
 export { api };
 export default api;
