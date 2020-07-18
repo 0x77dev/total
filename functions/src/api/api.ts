@@ -1,4 +1,6 @@
 import { ApolloServer, gql } from "apollo-server-cloud-functions";
+import admin from "../utils/admin";
+import { Context } from "./interfaces/api.interface";
 
 const typeDefs = gql`
   type Query {
@@ -6,18 +8,25 @@ const typeDefs = gql`
   }
 `;
 
-// Provide resolver functions for your schema fields
-const resolvers = {
-  Query: {
-    hello: () => "Hello world!",
-  },
-};
-
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
+  resolvers: {
+    Query: {
+      hello: () => "Hello world!",
+    },
+  },
   playground: true,
   introspection: true,
+  context: async ({ req }): Promise<Context> => {
+    let ctx: Context = { currentUser: null };
+    const token = req.headers.token;
+    if (token) {
+      const idToken = await admin.auth().verifyIdToken(token);
+      const currentUser = await admin.auth().getUser(idToken.uid);
+      ctx = { ...ctx, currentUser };
+    }
+    return ctx;
+  },
 });
 
 const api = server.createHandler({
