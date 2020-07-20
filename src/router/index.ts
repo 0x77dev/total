@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import firebase from "@/plugins/firebase";
+import initFirebase from "@/plugins/firebase/init";
 
 Vue.use(VueRouter);
 
@@ -40,6 +41,8 @@ const router = new VueRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
+  if (firebase.apps.length === 0) initFirebase();
+
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   if (requiresAuth && !firebase.auth().currentUser) {
     next("login");
