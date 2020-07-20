@@ -11,7 +11,7 @@ const server = new ApolloServer({
   introspection: true,
   context: async ({ req }): Promise<Context> => {
     let ctx: Context = { currentUser: null };
-    const token = req.headers.token;
+    const token = req.headers.token || req.headers.Authorization;
     if (token) {
       const idToken = await admin.auth().verifyIdToken(token);
       const currentUser = await admin.auth().getUser(idToken.uid);
