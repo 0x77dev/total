@@ -4,6 +4,17 @@ import {
   createApolloClient,
   restartWebsockets,
 } from "vue-cli-plugin-apollo/graphql-client";
+import firebase from "./plugins/firebase";
+import { setContext } from "@apollo/client/link/context";
+
+const authLink = setContext(async (_, { headers }) => {
+  return {
+    headers: {
+      ...headers,
+      token: await firebase.auth().currentUser.getIdToken(),
+    },
+  };
+});
 
 // Install the vue plugin
 Vue.use(VueApollo);
@@ -35,13 +46,14 @@ const defaultOptions = {
   // Override default apollo link
   // note: don't override httpLink here, specify httpLink options in the
   // httpLinkOptions property of defaultOptions.
-  // link: myLink
+  link: authLink,
 
   // Override default cache
   // cache: myCache
 
-  // Override the way the Authorization header is set
-  // getAuth: (tokenName) => ...
+  // getAuth: async () => {
+  //   return await firebase.auth().currentUser.getIdToken();
+  // },
 
   // Additional ApolloClient options
   // apollo: { ... }

@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.0.2",
     "@babel/polyfill": "^7.4.4",
     "@mdi/font": "^3.6.95",
     "animate.css": "^4.1.0",

@@ -4,5 +4,24 @@
 
 <script lang="ts">
 import Vue from "vue";
-export default Vue.extend({});
+import gql from "graphql-tag";
+
+export default Vue.extend({
+  // @ts-ignore
+  apollo: {
+    iam: gql`
+      query {
+        iam {
+          uid
+          displayName
+          email
+          phoneNumber
+          emailVerified
+          photoURL
+          disabled
+        }
+      }
+    `,
+  },
+});
 </script>
