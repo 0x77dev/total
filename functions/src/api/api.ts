@@ -1,20 +1,12 @@
-import { ApolloServer, gql } from "apollo-server-cloud-functions";
+import { ApolloServer } from "apollo-server-cloud-functions";
 import admin from "../utils/admin";
 import { Context } from "./interfaces/api.interface";
-
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
+import { resolverMap } from "./resolverMap";
+import { typeDefs } from "./typeDefs";
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers: {
-    Query: {
-      hello: () => "Hello world!",
-    },
-  },
+  resolvers: resolverMap,
   playground: true,
   introspection: true,
   context: async ({ req }): Promise<Context> => {
