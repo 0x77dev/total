@@ -20,10 +20,11 @@ export const resolverMap: IResolvers<any, Context> = {
 
       const snapshot = await admin
         .firestore()
-        .collection(`/user/${ctx.currentUser?.uid}/transactions`)
+        // @ts-ignore
+        .collection(`/user/${ctx.currentUser.uid}/transactions`)
         .get();
 
-      //@ts-ignore
+      // @ts-ignore
       return snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -43,16 +44,18 @@ export const resolverMap: IResolvers<any, Context> = {
 
       await admin
         .firestore()
-        .collection(`/user/${ctx.currentUser?.uid}/transactions`)
+        // @ts-ignore
+        .collection(`/user/${ctx.currentUser.uid}/transactions`)
         .doc()
         .set(transaction);
 
       const snapshot = await admin
         .firestore()
-        .collection(`/user/${ctx.currentUser?.uid}/transactions`)
+        // @ts-ignore
+        .collection(`/user/${ctx.currentUser.uid}/transactions`)
         .get();
 
-      //@ts-ignore
+      // @ts-ignore
       return snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),

@@ -10,6 +10,7 @@ import { createProvider } from "./vue-apollo";
 
 import vuetify from "./plugins/vuetify";
 import initFirebase from "./plugins/firebase/init";
+import "@mdi/font/css/materialdesignicons.min.css";
 
 Vue.config.productionTip = false;
 Vue.prototype.$firebase = firebase;
