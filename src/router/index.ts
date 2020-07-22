@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import firebase from "@/plugins/firebase";
 import initFirebase from "@/plugins/firebase/init";
+import IAM from "@/views/IAM.vue";
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,14 @@ const routes: Array<RouteConfig> = [
     path: "/home",
     name: "Home",
     component: Home,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/iam",
+    name: "IAM",
+    component: IAM,
     meta: {
       requiresAuth: true,
     },
