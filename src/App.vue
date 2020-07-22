@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app dark class="elevation-0">
       <div class="d-flex align-center">
         <h2>Total</h2>
       </div>
