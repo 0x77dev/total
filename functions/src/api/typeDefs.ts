@@ -1,13 +1,22 @@
 import { gql } from "apollo-server-cloud-functions";
 
 export const typeDefs = gql`
+  """
+  \`ISODate\` - custom graphql scalar, returns date in ISO8601 format.
+  """
   scalar ISODate
 
+  """
+  \`AddedBy\` - Tells who acted on something, user or automation.
+  """
   enum AddedBy {
     user
     automated
   }
 
+  """
+  \`User\` - Firebase User Type
+  """
   type User {
     uid: ID!
     displayName: String
@@ -18,6 +27,9 @@ export const typeDefs = gql`
     disabled: Boolean
   }
 
+  """
+  \`Transaction\` - Money Transaction Type
+  """
   type Transaction {
     id: ID!
     title: String!
@@ -28,6 +40,9 @@ export const typeDefs = gql`
     timestamp: ISODate
   }
 
+  """
+  \`CreateTransaction\` - Money Transaction Creation Input
+  """
   input CreateTransaction {
     title: String!
     description: String
@@ -36,11 +51,19 @@ export const typeDefs = gql`
   }
 
   type Query {
+    "Tells User information By Token Providen in headers"
     iam: User
+
+    """
+    User Money Transactions
+    """
     transactions: [Transaction]!
   }
 
   type Mutation {
+    """
+    Create User Money Transaction
+    """
     createTransaction(transaction: CreateTransaction): [Transaction!]!
   }
 `;
