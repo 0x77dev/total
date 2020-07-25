@@ -9,6 +9,9 @@
       {{user ? (user.displayName ? user.displayName : "") : ""}}
       <v-spacer></v-spacer>
 
+      <v-btn v-if="user !== null" href="/#/home" icon>
+        <v-icon>mdi-wallet</v-icon>
+      </v-btn>
       <v-btn v-if="user !== null" href="/#/iam" icon>
         <v-icon>mdi-account</v-icon>
       </v-btn>
