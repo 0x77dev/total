@@ -1,24 +1,13 @@
 <template>
-  <v-card
-    :class="error ? 'animate__animated animate__bounce animate__shakeX' : ''"
-  >
-    <v-toolbar flat color="primary" dark>
-      <v-toolbar-title>Login</v-toolbar-title>
-    </v-toolbar>
-    <v-tabs vertical>
-      <v-tab>Email</v-tab>
+  <v-card :class="error ? 'animate__animated animate__bounce animate__shakeX' : ''">
+    <v-tabs dark>
+      <v-tab>Login / Email</v-tab>
 
       <v-tab-item>
         <v-card flat>
           <v-card-text>
             <v-form>
-              <v-text-field
-                id="email"
-                label="Email"
-                name="login"
-                v-model="email"
-                type="email"
-              ></v-text-field>
+              <v-text-field id="email" label="Email" name="login" v-model="email" type="email"></v-text-field>
 
               <v-text-field
                 id="password"
@@ -31,11 +20,11 @@
             {{ errorMessage }}
           </v-card-text>
           <v-card-actions>
-            <v-btn text>Reset Password</v-btn>
+            <v-btn text color="secondary">Reset Password</v-btn>
 
             <v-spacer></v-spacer>
 
-            <v-btn color="primary" @click="emailLogin" text>Login</v-btn>
+            <v-btn @click="emailLogin" text>Login</v-btn>
           </v-card-actions>
         </v-card>
       </v-tab-item>

@@ -4,7 +4,7 @@
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
-            <LoginCard />
+            <AuthCard />
           </v-col>
         </v-row>
       </v-container>
@@ -14,12 +14,12 @@
 <script lang="ts">
 import Vue from "vue";
 // @ts-ignore
-import LoginCard from "../components/LoginCard.vue";
+import AuthCard from "../components/AuthCard.vue";
 
 export default Vue.extend({
-  name: "Login",
+  name: "Auth",
   components: {
-    LoginCard
-  }
+    AuthCard,
+  },
 });
 </script>
