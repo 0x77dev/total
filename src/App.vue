@@ -6,9 +6,14 @@
       </div>
 
       <v-spacer></v-spacer>
+      {{user ? (user.displayName ? user.displayName : "") : ""}}
+      <v-spacer></v-spacer>
 
-      <v-btn href="/#/iam" icon>
+      <v-btn v-if="user !== null" href="/#/iam" icon>
         <v-icon>mdi-account</v-icon>
+      </v-btn>
+      <v-btn v-if="user !== null" @click="logOut" icon>
+        <v-icon>mdi-exit-run</v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -20,5 +25,28 @@
 
 <script lang="ts">
 import Vue from "vue";
-export default Vue.extend({});
+import firebase from "firebase/app";
+import "firebase/auth";
+
+export default Vue.extend({
+  name: "App",
+  data: (): { user: firebase.User | null } => ({
+    user: null,
+  }),
+  beforeMount() {
+    this.user = firebase.auth().currentUser;
+    if (this.user !== null) {
+      this.$router.replace("/home");
+    }
+  },
+  mounted() {
+    firebase.auth().onAuthStateChanged((user) => (this.user = user));
+  },
+  methods: {
+    async logOut() {
+      await firebase.auth().signOut();
+      this.$router.push("/auth");
+    },
+  },
+});
 </script>
