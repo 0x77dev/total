@@ -2,6 +2,7 @@
   <v-app>
     <v-app-bar app dark class="elevation-0">
       <div class="d-flex align-center">
+        <v-img :src="require('@/assets/logo.svg')" width="32pt" height="32pt"></v-img>
         <h2>Total</h2>
       </div>
 
