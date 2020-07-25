@@ -38,6 +38,7 @@ export const typeDefs = gql`
     currency: String!
     addedBy: AddedBy
     timestamp: ISODate
+    tags: [String]
   }
 
   """

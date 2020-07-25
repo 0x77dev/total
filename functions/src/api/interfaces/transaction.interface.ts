@@ -6,6 +6,7 @@ export interface Transaction {
   currency: string;
   timestamp: Date;
   addedBy?: "automated" | "user";
+  tags?: string[];
 }
 
 export default Transaction;
