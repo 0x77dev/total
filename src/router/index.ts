@@ -52,6 +52,8 @@ const router = new VueRouter({
 router.beforeEach(async (to, from, next) => {
   if (firebase.apps.length === 0) initFirebase();
 
+  firebase.analytics().setCurrentScreen(to.path);
+
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   if (requiresAuth && !firebase.auth().currentUser) {
     next("login");
