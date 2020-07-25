@@ -20,7 +20,7 @@
             {{ errorMessage }}
           </v-card-text>
           <v-card-actions>
-            <v-btn text color="secondary">Reset Password</v-btn>
+            <v-btn text @click="emailResetPassword" color="secondary">Reset Password</v-btn>
 
             <v-spacer></v-spacer>
 
@@ -59,6 +59,16 @@ export default Vue.extend({
           .auth()
           .signInWithEmailAndPassword(this.email, this.password);
         this.$router.replace("/home");
+      } catch (error) {
+        this.error = true;
+        this.errorMessage = error.message;
+      }
+    },
+    async emailResetPassword() {
+      this.error = false;
+      try {
+        await firebase.auth().sendPasswordResetEmail(this.email);
+        this.errorMessage = "Link was sent to your email";
       } catch (error) {
         this.error = true;
         this.errorMessage = error.message;
