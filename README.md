@@ -6,6 +6,7 @@ Total is an expense tracking utility. Built for humans and developers.
 [![GitHub forks](https://img.shields.io/github/forks/0x77dev/total)](https://github.com/0x77dev/total/network)
 [![GitHub stars](https://img.shields.io/github/stars/0x77dev/total)](https://github.com/0x77dev/total/stargazers)
 [![GitHub license](https://img.shields.io/github/license/0x77dev/total)](https://github.com/0x77dev/total/blob/master/LICENSE)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/0x77dev/total)
 ![CI](https://github.com/0x77dev/total/workflows/CI/badge.svg?branch=master)
 
 ## Technologies
