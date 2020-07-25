@@ -15,11 +15,23 @@
 import Vue from "vue";
 // @ts-ignore
 import AuthCard from "../components/AuthCard.vue";
+import firebase from "firebase/app";
+import "firebase/auth";
 
 export default Vue.extend({
   name: "Auth",
   components: {
     AuthCard,
+  },
+  beforeMount() {
+    if (firebase.auth().currentUser !== null) {
+      this.$router.replace("/home");
+    }
+  },
+  mounted() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user !== null) this.$router.replace("/home");
+    });
   },
 });
 </script>
